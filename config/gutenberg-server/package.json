@@ -1,0 +1,14 @@
+{
+    "name": "wpbeastmode-gutenberg-server-docker",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "wp-graphql-gutenberg-server"
+    },
+    "dependencies": {
+        "wp-graphql-gutenberg-server": "0.2.1"
+    },
+    "devDependencies": {
+    },
+    "license": "MIT"
+  }
+  

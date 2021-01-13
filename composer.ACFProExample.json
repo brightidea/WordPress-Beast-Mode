@@ -1,0 +1,73 @@
+{
+  "name": "brightidea/wpbeastmode",
+  "type": "project",
+  "license": "mit",
+  "description": "Headless WordPress Stack",
+  "homepage": "https://wpbeastmode.com",
+  "authors": [
+    {
+      "name": "Blake Moore",
+      "email": "blakeevanmoore@gmail.com",
+      "homepage": "https://github.com/brightidea"
+    }
+  ],
+  "keywords": [
+    "headless", "composer", "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/brightidea/wpbeastmode/issues"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "vendor-dir": "backend/vendor"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "composer/installers": "^1.4",
+    "vlucas/phpdotenv": "^3.4.0",
+    "oscarotero/env": "^1.2.0",
+    "roots/wp-password-bcrypt": "1.0.0",
+    "wpackagist-plugin/litespeed-cache":"3.5.2",
+    "wpackagist-plugin/cloudflare":"3.8.6",
+    "wp-graphql/wp-graphql": "^1.0",
+    "wp-graphql/wp-graphql-acf": "^0.4.0",
+    "pristas-peter/wp-graphql-gutenberg": "^0.3.5",
+    "wp-graphql/wp-graphql-jwt-authentication": "^0.4.1",
+    "wpackagist-theme/nude":"1.2",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.9"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.4.2",
+    "roave/security-advisories": "dev-master"
+  },
+  "extra": {
+    "installer-paths": {
+      "backend/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "backend/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "backend/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/backend"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}

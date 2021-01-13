@@ -1,0 +1,65 @@
+{
+  "name": "brightidea/wpbeastmode",
+  "type": "project",
+  "license": "mit",
+  "description": "Headless WordPress Development Environment",
+  "homepage": "https://wpbeastmode.com",
+  "authors": [
+    {
+      "name": "Blake Moore",
+      "email": "blakeevanmoore@gmail.com",
+      "homepage": "https://github.com/brightidea"
+    }
+  ],
+  "keywords": [
+    "headless", "composer", "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/brightidea/wpbeastmode/issues"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "vendor-dir": "vendor"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "composer/installers": "^1.4",
+    "vlucas/phpdotenv": "^3.4.0",
+    "oscarotero/env": "^1.2.0",
+    "roots/wp-password-bcrypt": "1.0.0",
+    "wpackagist-plugin/wp-graphql":"1.0.5",
+    "wp-graphql/wp-graphql-jwt-authentication": "^0.4.1",
+    "pristas-peter/wp-graphql-gutenberg": "^0.3.5",
+    "humanmade/s3-uploads": "^2.2.1",
+    "wpackagist-plugin/ninja-forms":"3.4.33"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.4.2",
+    "roave/security-advisories": "dev-master"
+  },
+  "extra": {
+    "installer-paths": {
+      "backend/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "backend/wp-content/plugins/{$name}/": ["type:wordpress-plugin"]
+    },
+    "wordpress-install-dir": "backend"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}
